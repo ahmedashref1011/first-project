@@ -1,12 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <script>
+            function evalid(id_for_valid){
+               if (id_for_valid=="email"){ 
+                var regex =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    var isValid = regex.test(document.getElementById(id_for_valid).value);
+                    if (!isValid) {
+                        document.querySelector('.validationmsge').classList.remove('valid-feedback');
+                        document.querySelector('.validationmsge').classList.add('invalid-feedback');
+                        document.querySelector('.validationmsge').innerHTML="please enter valid email";
+            }
+                if(isValid){
+                document.querySelector('.validationmsge').classList.remove('invalid-feedback');
+                document.querySelector('.validationmsge').classList.add('valid-feedback');
+                document.querySelector('.validationmsge').innerHTML="valid email!";
+            }}
+            if(id_for_valid=="password"){
+                var regex =/^(?=.*\d).{4,8}$/
+                    var isValid = regex.test(document.getElementById(id_for_valid).value);
+                    if (!isValid) {
+                        document.querySelector('.validationmsgp').classList.remove('valid-feedback');
+                        document.querySelector('.validationmsgp').classList.add('invalid-feedback');
+                        document.querySelector('.validationmsgp').innerHTML="Password must be between 4 and 8 digits long and include at least one numeric digit.";
+            }
+            else{
+                document.querySelector('.validationmsgp').classList.remove('invalid-feedback');
+                document.querySelector('.validationmsgp').classList.add('valid-feedback');
+                document.querySelector('.validationmsgp').innerHTML="valid password";
+            }
+
+            }};
+        </script>
+    <title>login</title>
 </head>
-<body>
-    
+
+<body style="background-color: rgb(13, 129, 168)">
+    <div class="navbar">
+        <nav class="float-left">
+            <a class="navbar-brand nav-link text-white" href="#">
+                <img src="../mm.png" alt="Logo" style="width:40px;"> name</a>
+        </nav>
+        <nav class="nav justify-content-end ">
+            <a class="nav-item nav-link text-white" href="#">profile</a>
+            <a class="nav-item nav-link text-white" href="#">home</a>
+            <a class="nav-item nav-link text-white" href="#">product</a>
+            <a class="nav-item nav-link text-white" href="#">search</a>
+            <a class="nav-item nav-link text-white" href="#">login</a>
+            <a class="nav-item nav-link text-white" href="#">Registration</a>
+        </nav>
+    </div>
+    <div style="background-color: white; padding: 10px">
+    <div class="container" style="    font-size: 22px;
+            box-shadow: 5px 5px 20px 1px rgba(0, 0, 0, 0.2);
+            width: 60%;
+            margin:90px auto;
+            background-color: ##cccccc4a;
+            border-radius: 5px;
+            padding: 15px;">
+        <form class="was-validated" id="form">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col text-left">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <input onfocus="evalid('email');" type="email" id="email" class="form-control" placeholder="example@example.example" required>
+                        <div class="validationmsge">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col text-left">
+                        <label for="Name">password</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <input onfocus="evalid('password');" type="password" class="form-control " placeholder="Enter your password" required>
+                        <div class="validationmsgp"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col text-center">
+                        <button type="submit" class="btn btn-dark btn-lg active">Log In</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+    </div>
+    <footer style="background-color: rgb(13, 129, 168) ; padding: 10px">
+        <a class="nav-link text-white d-inline" href="#">Contact us </a>
+        <a class="nav-link text-white d-inline" href="#">About us </a>
+    </footer>
 </body>
+
 </html>
